@@ -5,7 +5,7 @@ int main() {
     
 
 
-    while (2) {
+    while (1) {
         printf("\nEscolha uma opção:\n");
         printf("1. Novo Cliente\n");
         printf("2. Apagar Cliente\n");
