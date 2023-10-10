@@ -5,7 +5,7 @@
 typedef struct {
     char nome[50]
     long cpf;
-    char tipo de conta[5];
+    int tipodeconta;
     double valorinicial;
     int senha;
 
