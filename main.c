@@ -30,7 +30,7 @@ int main() {
                 break;
             case 3:
 // case 3 Listar Clientes
-                Listarclientes(listarclientes, "tarefas.bin");
+                Listarclientes(Listarclientes);
                 break;
             case 4:
 // débito
