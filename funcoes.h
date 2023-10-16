@@ -1,6 +1,8 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
+//teste
+
 // type def do truck irá informar o que será permitido dentro dele e a quantidade de caracteres
 typedef struct {
     char nome[50]
