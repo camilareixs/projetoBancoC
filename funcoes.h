@@ -18,7 +18,13 @@ typedef struct {
     Clientes Clientes[1000];
     int qtd;
 }
-totalclientes
+totalclientes;
+
+
+
+
+
+
 
 
 
