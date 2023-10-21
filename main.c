@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int main() {
+
+    totalclientes TodosClientes;
+    TodosClientes.qtd = 0;
     int escolha;
     
-
 
     while (1) {
         printf("\nEscolha uma opção:\n");
@@ -22,11 +25,14 @@ int main() {
         switch (escolha) {
             case 1:
 //case 1 Novo cliente
-                NovoCliente(&novocliente);
+                NovoCliente(&TodosClientes);
                 break;
             case 2:
 // case 2 Apagar clientes
-                ApagarCliente(ApagarCliente));
+                long cpf;
+                printf("Digite o CPF do cliente a ser apagado: ");
+                scanf("%ld", &cpf);
+                ApagarCliente(&TodosClientes, cpf);
                 break;
             case 3:
 // case 3 Listar Clientes

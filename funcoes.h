@@ -10,20 +10,25 @@ typedef struct {
     int tipodeconta;
     double valorinicial;
     int senha;
+    float saldoatual;
 
 } 
 clientedesc;
+
 // define a quantidade maxima de clientes
 typedef struct {
-    Clientes Clientes[1000];
+clientedesc Clientes[1000];
     int qtd;
 }
 totalclientes;
 
-
-
-
-
+void NovoCliente(clientedesc *Clientes);
+void ApagarCliente(clientedesc *Clientes);
+void Listarclientes(clientedesc *Clientes);
+void debito(clientedesc *Clientes);
+void deposito(clientedesc *Clientes);
+void extrato(clientedesc *Clientes);
+void transferencia(clientedesc *Clientes);
 
 
 

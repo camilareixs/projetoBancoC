@@ -27,30 +27,52 @@ fgets(&NovoCliente.valorinicial, sizeof(valorinicial), stdin);
 printf("Qual será sua senha de seguranca com até 10 digitos"); 
 fgets(&NovoCliente.senha, sizeof(senha), stdin);
 
+NovoCliente.saldoatual = NovoCliente.valorinicial;
+Clientes->Clientes[Clientes->qtd] = NovoCliente;
+Clientes->qtd++;
+printf("Cliente cadastrado com sucesso.\n");
+
 }
 
 
 
-void MostarClientes(clientedesc *Clientes){
-    if (*Clientes == 0){
+void Listarclientes(clientedesc *Clientes) {
+    if (Clientes->qtd == 0) {
         printf("Nenhum cliente encontrado.\n");
-        return;}
+        return;
+    }
 
-    struct clientedesc Listarclientes;
-
-    rewind(arquivo);
     printf("Aqui está a lista de todos os seus clientes:\n");
-// Lê e exibe as informações de todas as tarefas no arquivo
-    while (fread(&clientedesc, sizeof(struct Clientes), 1, arquivo) == 1) {
-    printf("Nome: %c\n", clientedesc.nome);
-    printf("CPF: %l\n", clientedesc.cpf);
-    printf("Tipo de conta: %i\n", clientedesc.tipodeconta);
-    printf("Valor inicial: %d\n", clientedesc.valorinicial);
-    printf("\n");
-}    
+
+    for (int i = 0; i < Clientes->qtd; i++) {
+        printf("Nome: %s\n", Clientes->Clientes[i].nome);
+        printf("CPF: %ld\n", Clientes->Clientes[i].cpf);
+        printf("Tipo de conta: %d\n", Clientes->Clientes[i].tipodeconta);
+        printf("Valor inicial: %.2lf\n", Clientes->Clientes[i].valorinicial);
+        printf("Saldo atual: %.2f\n\n", Clientes->Clientes[i].saldoatual);
+    }
 }
 
+void ApagarCliente(totalclientes *TodosClientes, long cpf) {
+    int index = -1;
+    for (int i = 0; i < TodosClientes->qtd; i++) {
+        if (TodosClientes->Clientes[i].cpf == cpf) {
+            index = i;
+            break;
+        }
+    }
 
+    if (index != -1) {
+       
+        for (int i = index; i < TodosClientes->qtd - 1; i++) {
+            TodosClientes->Clientes[i] = TodosClientes->Clientes[i + 1];
+        }
+        TodosClientes->qtd--;
+        printf("Cliente removido com sucesso.\n");
+    } else {
+        printf("Cliente não encontrado.\n");
+    }
+}
 
 
 
