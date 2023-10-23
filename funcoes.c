@@ -13,19 +13,28 @@ void cadastrarCliente(clientedesc *Clientes) {
 printf("Digite o seu nome: \n");
 fgets(&NovoCliente.nome, sizeof(nome), stdin);
 
+char input[11];
 printf("Digite seu CPF: \n");
-fgets(&NovoCliente.cpf, sizeof(cpf), stdin);
+fgets(input, sizeof(input), stdin);
+NovoCliente.cpf = atol(input);
 
 printf("Qual seria seu tipo de conta?\n 
 1 - Conta comum \n 
 2 - Conta Plus com beneficios \n");
-fgets(&NovoCliente.conta, sizeof(conta), stdin);
+char inputconta[1];
+fgets(inputconta, sizeof(inputconta), stdin);
+NovoCliente.tipodeconta = atoi(inputconta);
 
 printf("Qual será o seu valor inicial?"); 
-fgets(&NovoCliente.valorinicial, sizeof(valorinicial), stdin);
+char valorinicialc[11];
+fgets(valorinicialc, sizeof(valorinicialc), stdin);
+NovoCliente.valorinicial = atof(valorinicialc);
+
 
 printf("Qual será sua senha de seguranca com até 10 digitos"); 
-fgets(&NovoCliente.senha, sizeof(senha), stdin);
+char senhac[10];
+fgets(senhac, sizeof(senhac), stdin);
+NovoCliente.senha = atoi(senhac)
 
 }
 
