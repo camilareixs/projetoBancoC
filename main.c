@@ -61,27 +61,34 @@ int main() {
         switch (escolha) {
             case 1:
                 NovoCliente(&TodosClientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 2:
                 long cpf;
                 printf("Digite o CPF do cliente a ser apagado: ");
                 scanf("%ld", &cpf);
                 ApagarCliente(&TodosClientes, cpf);
+                salvarClientes(&TodosClientes);
                 break;
             case 3:
                 Listarclientes(&TodosClientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 4:
                 debito(&TodosClientes.Clientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 5:
                 deposito(&TodosClientes.Clientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 6:
                 extrato(&TodosClientes.Clientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 7:
                 transferencia(&TodosClientes.Clientes);
+                salvarClientes(&TodosClientes);
                 break;
             case 8:
                 salvarClientes(&TodosClientes); // Salve os dados antes de sair
