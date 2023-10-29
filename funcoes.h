@@ -1,32 +1,27 @@
-#ifndef FUNCOES_H
-#define FUNCOES_H
+#ifndef FUNCAO_H
+#define FUNCAO_H
 
-//teste
 
-// type def do truck irá informar o que será permitido dentro dele e a quantidade de caracteres
 typedef struct {
-    char nome[50]
+    char nome[50];
     long cpf;
     int tipodeconta;
     double valorinicial;
-    int senha;
+    char senha[11];  // Alterado para array de caracteres para senhas
+    float saldoatual;
+} clientedesc;
 
-} 
-clientedesc;
-// define a quantidade maxima de clientes
 typedef struct {
-    Clientes Clientes[1000];
+    clientedesc Clientes[1000];
     int qtd;
-}
-totalclientes;
+} totalclientes;
 
-
-
-
-
-
-
-
-
+void NovoCliente(totalclientes *Clientes);  // Protótipo da função corrigido
+void ApagarCliente(totalclientes *TodosClientes, long cpf);  // Protótipo da função corrigido
+void Listarclientes(totalclientes *TodosClientes); // Corrigido o protótipo da função igido
+void debito(clientedesc *Clientes);
+void deposito(clientedesc *Clientes);
+void extrato(clientedesc *Clientes);
+void transferencia(clientedesc *Clientes);
 
 #endif
