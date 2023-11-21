@@ -1,26 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "funcao.h"
+#include "funcoes.h"
 
 void salvarClientes(totalclientes *Clientes) {
-    FILE *arquivo = fopen("clientes.dat", "wb"); // Abra o arquivo para escrita binária
+    FILE *arquivo = fopen("clientes.dat", "wb");
 
     if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo para salvar os clientes :( \n");
+        printf("Erro ao abrir o arquivo para salvar os clientes.\n");
         return;
     }
 
     if (fwrite(Clientes, sizeof(totalclientes), 1, arquivo) == 1) {
-        fclose(arquivo); // Feche o arquivo após a gravação
-        printf("Os Dados foram salvos com sucesso :)\n");
+        fclose(arquivo);
+        printf("Os Dados foram salvos com sucesso.\n");
     } else {
-        fclose(arquivo); // Feche o arquivo em caso de erro
-        printf("Erro ao salvar os dados :( \n");
+        fclose(arquivo);
+        printf("Erro ao salvar os dados.\n");
     }
 }
 
 void carregarClientes(totalclientes *Clientes) {
-    FILE *arquivo = fopen("clientes.dat", "rb"); // Abra o arquivo para leitura binária
+    FILE *arquivo = fopen("clientes.dat", "rb");
 
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo para carregar os clientes.\n");
@@ -28,11 +28,11 @@ void carregarClientes(totalclientes *Clientes) {
     }
 
     if (fread(Clientes, sizeof(totalclientes), 1, arquivo) == 1) {
-        fclose(arquivo); // Feche o arquivo após a leitura
+        fclose(arquivo);
         printf("Dados carregados com sucesso!\n");
     } else {
-        fclose(arquivo); // Feche o arquivo em caso de erro
-        printf("Erro ao carregar os dados :( \n");
+        fclose(arquivo);
+        printf("Erro ao carregar os dados.\n");
     }
 }
 
@@ -40,7 +40,7 @@ int main() {
     totalclientes TodosClientes;
     TodosClientes.qtd = 0;
 
-    carregarClientes(&TodosClientes); // Carregue os dados ao iniciar o programa
+    carregarClientes(&TodosClientes);
 
     int escolha;
 
@@ -75,23 +75,23 @@ int main() {
                 salvarClientes(&TodosClientes);
                 break;
             case 4:
-                debito(&TodosClientes.Clientes);
+                debito(TodosClientes.Clientes);
                 salvarClientes(&TodosClientes);
                 break;
             case 5:
-                deposito(&TodosClientes.Clientes);
+                deposito(TodosClientes.Clientes);
                 salvarClientes(&TodosClientes);
                 break;
             case 6:
-                extrato(&TodosClientes.Clientes);
+                extrato(TodosClientes.Clientes);
                 salvarClientes(&TodosClientes);
                 break;
             case 7:
-                transferencia(&TodosClientes.Clientes);
+                transferencia(TodosClientes.Clientes);
                 salvarClientes(&TodosClientes);
                 break;
             case 8:
-                salvarClientes(&TodosClientes); // Salve os dados antes de sair
+                salvarClientes(&TodosClientes);
                 printf("Que pena que escolheu sair. Até breve!\n");
                 return 0;
             default:
